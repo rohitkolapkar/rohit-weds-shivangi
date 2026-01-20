@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohit & Shivangi | The Royal Union</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Rozha+One&family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&family=Yatra+One&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0b1d3f;
+            --gold: #c5a059;
+            --gold-bright: #e5c585;
+            --text-white: #ffffff;
+            --text-ivory: #fdfbf7;
+            --text-muted: #c5a059;
+            --live-red: #ff4d4d;
+            --ribbon-height: 40px;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-dark); 
+            color: var(--text-ivory);
+            padding-bottom: 90px;
+            padding-top: var(--ribbon-height); 
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+#sub-text.text-muted {
+    color: rgba(255, 215, 160, 0.95) !important; /* warm gold */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.3px;
+}
+
+        /* --- LANGUAGE SWITCHER --- */
+        .lang-btn {
+            position: fixed; top: 45px; right: 5px; z-index: 5000;
+            width: 40px; height: 40px; border-radius: 50%;
+            background: rgba(255,255,255,0.1); border: 1px solid var(--gold);
+            color: var(--gold); display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; cursor: pointer; backdrop-filter: blur(5px);
+            transition: all 0.3s;
+        }
+	
+        .lang-btn:hover { background: var(--gold); color: #0b1d3f; }
+
+        .lang-menu {
+            position: fixed; top: 90px; right: 20px; z-index: 5000;
+            background: rgba(11, 29, 63, 0.95); border: 1px solid var(--gold);
+            border-radius: 8px; overflow: hidden; display: none; flex-direction: column;
+            width: 140px; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        .lang-menu.show { display: flex; }
+        .lang-option {
+            padding: 10px 15px; cursor: pointer; color: var(--text-ivory);
+            font-size: 0.9rem; border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            transition: background 0.2s;
+        }
+        .lang-option:last-child { border-bottom: none; }
+        .lang-option:hover { background: var(--gold); color: #0b1d3f; }
+
+        /* --- FONT HANDLING --- */
+        /* Default (English) - Main Headers */
+        .couple-name, .about-title { font-family: 'Great Vibes', cursive; }
+        /* Default (English) - Sub Headers */
+        .fam-names, .wedding-tagline, .hero-date, .card-header-text, .day-title, .about-text, .english-tagline, .btn-learn-more { font-family: 'Cinzel', serif; }
+	.royal-hindi-title {font-family: 'Rozha One', serif; font-weight: 500; letter-spacing: 1px; line-height: 1.4;}
+        /* Default (English) - Body Text */
+        .fam-msg, .event-desc, .vow-meaning { font-family: 'Lato', sans-serif; }
+
+        /* OVERRIDES FOR MARATHI & HINDI (To support Devanagari nicely) */
+        body.lang-mr .couple-name, body.lang-hi .couple-name { 
+		font-family: 'Great Vibes', cursive; }
+	body.lang-mr .fam-msg, body.lang-hi .fam-msg,
+	body.lang-mr .english-tagline, body.lang-hi .english-tagline,
+	body.lang-mr .card-header-text, body.lang-hi .card-header-text {
+		font-family: 'Lato', sans-serif;}
+        body.lang-mr .fam-names, body.lang-hi .fam-names,
+	body.lang-mr .wedding-tagline, body.lang-hi .wedding-tagline,
+	body.lang-mr .hero-date, body.lang-hi .hero-date,
+	body.lang-mr .about-title, body.lang-hi .about-title,
+	body.lang-mr .day-title, body.lang-hi .day-title,
+        body.lang-mr .royal-hindi-title, body.lang-hi .royal-hindi-title {
+		font-family: 'Rozha One', serif; font-weight: 500; letter-spacing: 1px; line-height: 1.4;}        
+        body.lang-mr .about-text, body.lang-hi .about-text,
+        body.lang-mr .event-desc, body.lang-hi .event-desc,
+        body.lang-mr .vow-meaning, body.lang-hi .vow-meaning {
+            font-family: 'Yatra One', cursive; font-size: 0.95rem; letter-spacing: 0.5px;}
+
+        /* --- 1. FLUENT FLOATING HEARTS --- */
+        #dust-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        .shimmer-heart { position: absolute; animation: floatHearts 15s infinite linear, sway 4s infinite ease-in-out alternate; opacity: 0; font-size: 10px; z-index: 0; }
+        .heart-gold i { background: linear-gradient(to bottom, #fbf5b7, #aa771c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .heart-red i { color: var(--live-red); filter: drop-shadow(0 0 2px rgba(255, 77, 77, 0.5)); }
+        @keyframes floatHearts { 0% { transform: translateY(110vh) scale(0.5); opacity: 0; } 20% { opacity: 0.8; } 80% { opacity: 0.8; } 100% { transform: translateY(-10vh) scale(1.2); opacity: 0; } }
+        @keyframes sway { 0% { margin-left: -10px; } 100% { margin-left: 10px; } }
+
+        /* --- 2. TOP RIBBON --- */
+        .top-ribbon { position: fixed; top: 0; left: 0; width: 100%; height: var(--ribbon-height); background: linear-gradient(90deg, #aa771c, #fbf5b7, #aa771c); color: #0b1d3f; display: flex; align-items: center; z-index: 2000; font-family: 'Cinzel', serif; font-size: 0.85rem; font-weight: 800; box-shadow: 0 2px 10px rgba(0,0,0,0.5); text-transform: uppercase; letter-spacing: 1px; overflow: hidden; white-space: nowrap; }
+        .marquee-track { display: flex; width: fit-content; animation: infiniteScroll 30s linear infinite; }
+        .marquee-content { display: flex; align-items: center; flex-shrink: 0; }
+        .marquee-item { margin: 0 30px; display: inline-flex; align-items: center; }
+        .ribbon-live-dot { width: 8px; height: 8px; background-color: red; border-radius: 50%; display: inline-block; margin-bottom: 8px; margin-left: 2px; box-shadow: 0 0 5px red; animation: rapidBlink 1s infinite; }
+        @keyframes rapidBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
+        @keyframes infiniteScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* --- 3. PERMANENT FAMILY HEADER --- */
+        .family-header { text-align: center; padding: 40px 20px 20px 20px; position: relative; z-index: 2; background: linear-gradient(to bottom, #0b1d3f 0%, rgba(11, 29, 63, 0) 100%); }
+        .fam-names { font-size: 1.4rem; letter-spacing: 2px; color: var(--gold-bright); text-transform: uppercase; margin-bottom: 10px; display: inline-block; border-bottom: 1px solid var(--gold); padding-bottom: 10px; }
+        .fam-msg { font-size: 1rem; color: var(--text-ivory); font-weight: 300; margin-bottom: 0; }
+
+        /* --- 4. HERO --- */
+        .hero { position: relative; background: url('https://images.unsplash.com/photo-1519225468359-2996bc01c32c?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center; padding: 40px 20px 60px 20px; text-align: center; border-bottom: none; z-index: 1; }
+        .hero::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to bottom, var(--bg-dark), rgba(11, 29, 63, 0.6), var(--bg-dark)); z-index: -1; }
+        .wedding-tagline { font-size: 1.4rem; letter-spacing: 4px; color: var(--gold-bright); text-transform: uppercase; margin-bottom: 10px; text-shadow: 0 2px 5px rgba(0,0,0,0.8); }
+        .couple-name { font-size: 5rem; line-height: 1.4; margin-bottom: 10px; padding: 10px 0; background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 4s linear infinite; position: relative; text-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        @keyframes shine { to { background-position: 200% center; } }
+        .hero-date { font-size: 1.4rem; color: var(--text-white); letter-spacing: 2px; font-weight: bold; margin-top: 10px; }
+
+        /* --- 5. STATUS CARDS --- */
+        .status-wrapper { position: relative; z-index: 10; margin: -20px 20px 40px 20px; }
+        .transparent-card { background: transparent; border: 1px solid rgba(197, 160, 89, 0.6); border-radius: 12px; padding: 25px 20px; text-align: center; }
+        .card-header-text { font-size: 0.9rem; letter-spacing: 2px; color: var(--gold-bright); text-transform: uppercase; margin-bottom: 15px; display: block; border-bottom: none; padding-bottom: 0; width: 100%; }
+        .countdown-grid { display: flex; justify-content: center; gap: 10px; }
+        .timer-item { background: transparent; border: 1px solid var(--gold); padding: 8px 5px; border-radius: 6px; min-width: 60px; animation: borderPulse 1.5s infinite ease-in-out; }
+        @keyframes borderPulse { 0% { border-color: var(--gold); box-shadow: 0 0 5px rgba(197, 160, 89, 0); } 50% { border-color: #fff; box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); } 100% { border-color: var(--gold); box-shadow: 0 0 5px rgba(197, 160, 89, 0); } }
+        .timer-val { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 700; color: #fff; line-height: 1; }
+        .timer-label { font-size: 0.6rem; text-transform: uppercase; color: var(--gold); letter-spacing: 1px; margin-top: 4px; display: block;}
+        .status-badge { background: var(--gold); color: var(--bg-dark); padding: 4px 12px; border-radius: 2px; font-size: 0.7rem; text-transform: uppercase; font-weight: bold; }
+        .status-badge.live-active { background: var(--live-red); color: white; box-shadow: 0 0 15px var(--live-red); animation: blinkRed 1.5s infinite; }
+        @keyframes blinkRed { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
+        .current-event-text { font-family: 'Rozha One', serif; font-size: 2.8rem; color: var(--text-white); margin: 15px 0 5px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.8); line-height: 1.1; }
+        .live-dot { height: 12px; width: 12px; background-color: var(--live-red); border-radius: 50%; display: inline-block; margin-right: 8px; animation: rippleRed 1.5s infinite; }
+        @keyframes rippleRed { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 77, 77, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 77, 77, 0); } }
+
+        /* --- 6. ABOUT SECTION --- */
+        .about-section {
+            position: relative; z-index: 5; margin: 0 20px 50px 20px;
+            background: rgba(11, 29, 63, 0.4); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold);
+            padding: 40px 20px; text-align: center;
+        }
+        .about-title { color: var(--gold-bright); font-size: 2.5rem; margin-bottom: 15px; }
+        .about-text { color: var(--text-ivory); font-size: 0.95rem; line-height: 1.8; margin-bottom: 20px; }
+        .about-sub { font-family: 'Lato', sans-serif; color: var(--text-muted); font-size: 0.9rem; font-style: italic; }
+
+        /* --- 7. ITINERARY & CARDS --- */
+        .day-wrapper { position: relative; margin-bottom: 20px; z-index: 5;}
+        .day-header { position: sticky; top: var(--ribbon-height); z-index: 100; display: flex; align-items: center; justify-content: center; background: rgba(11, 29, 63, 0.85); padding: 15px 0; box-shadow: 0 5px 20px -10px rgba(0,0,0,0.5); }
+        .day-line { height: 1px; background: var(--gold); flex-grow: 1; margin: 0 15px; opacity: 0.5; }
+        .day-title { color: var(--bg-dark); background: var(--gold); font-size: 1.1rem; font-weight: 900; text-transform: uppercase; border: 2px solid var(--gold-bright); padding: 8px 25px; border-radius: 50px; white-space: nowrap; letter-spacing: 2px; box-shadow: 0 0 15px rgba(197, 160, 89, 0.4); }
+
+        .timeline { padding: 0 15px; }
+        .event-card { 
+            background: rgba(11, 29, 63, 0.15); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 160, 89, 0.5); 
+            border-radius: 12px; padding: 45px 20px 25px 20px; position: relative; overflow: hidden; text-align: center; opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
+        }
+        .event-card.reveal { opacity: 1; transform: translateY(0); }
+        .event-card.active { border-color: var(--gold-bright); background: rgba(197, 160, 89, 0.2); box-shadow: 0 0 30px rgba(197, 160, 89, 0.2) inset; }
+        .card-live-badge { display: none; position: absolute; top: 15px; left: 15px; background: var(--live-red); color: #fff; font-size: 0.85rem; font-weight: 800; padding: 4px 8px; border-radius: 4px; font-family: 'Lato', sans-serif; box-shadow: 0 0 10px var(--live-red); animation: blinkRed 2s infinite; z-index: 10; }
+        .event-time-badge { position: absolute; top: 15px; left: 15px; color: var(--bg-dark); background: var(--gold-bright); font-size: 0.85rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; font-family: 'Lato', sans-serif; box-shadow: 2px 2px 5px rgba(0,0,0,0.3); transition: left 0.3s ease; }
+        .event-card.active .card-live-badge { display: block; } .event-card.active .event-time-badge { left: 70px; } 
+        
+        .royal-hindi-title { font-size: 2.2rem; color: var(--text-white); line-height: 1.2; margin: 5px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.8);}
+        .english-tagline { font-size: 0.95rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; font-weight: 700; text-shadow: 0 1px 2px rgba(0,0,0,0.8);}
+        .cultural-context { font-weight: 400; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; font-style: italic; border-bottom: 1px solid rgba(197, 160, 89, 0.2); display: inline-block; padding-bottom: 5px; }
+        .event-desc { color: var(--text-ivory); margin-bottom: 25px; line-height: 1.5; text-shadow: 0 1px 2px rgba(0,0,0,0.8);}
+        .royal-divider { text-align: center; color: var(--gold); font-size: 1.5rem; margin: 30px 0; opacity: 0.8; }
+
+        /* LEARN MORE BUTTON */
+        .btn-learn-more {
+            background: transparent; border: 1px solid var(--gold); color: var(--gold-bright);
+            padding: 8px 16px; border-radius: 4px; font-size: 0.75rem;
+            text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s;
+            margin-top: 10px; display: inline-block;
+        }
+        .btn-learn-more:hover { background: rgba(197, 160, 89, 0.2); color: #fff; }
+        
+        /* Hidden Details */
+        .event-details-content {
+            display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed rgba(197, 160, 89, 0.3);
+            font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; text-align: left;
+        }
+
+	.lang-option.active {
+    	background: var(--gold);
+   	 color: #0b1d3f;
+  	  font-weight: 700;
+	}
+
+        /* --- HORIZONTAL SCROLL FOR VOWS --- */
+        .vows-scroll-wrapper {
+            display: flex; overflow-x: auto; gap: 15px; padding: 10px 0;
+            margin-top: 10px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+        }
+        .vows-scroll-wrapper::-webkit-scrollbar { display: none; }
+        .vows-scroll-wrapper { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .vow-card {
+            flex: 0 0 260px; scroll-snap-align: start;
+            background: rgba(0,0,0,0.4); border: 1px solid var(--gold); border-radius: 8px; padding: 20px; text-align: center;
+        }
+        
+        .vow-mantra-title {
+            font-family: 'Rozha One', serif; color: var(--gold-bright); font-size: 1.3rem;
+            margin-bottom: 10px; border-bottom: 1px solid rgba(197, 160, 89, 0.5); padding-bottom: 10px;
+            display: inline-block; text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+        }
+        .vow-meaning { color: var(--text-muted); font-style: italic; line-height: 1.4; }
+
+        /* --- 8. GALLERY SECTION (MASONRY) --- */
+        .gallery-section {
+            margin: 50px 15px; position: relative; z-index: 5;
+            text-align: center;
+        }
+        .gallery-title { color: var(--gold-bright); font-size: 2.5rem; margin-bottom: 20px; }
+        
+        #gallery-grid {
+            column-count: 2; column-gap: 10px;
+        }
+        @media (min-width: 768px) { #gallery-grid { column-count: 3; column-gap: 15px; } }
+        
+        .gallery-item {
+            width: 100%; margin-bottom: 10px; border-radius: 6px;
+            border: 1px solid rgba(197, 160, 89, 0.4); display: block;
+            cursor: pointer; transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .gallery-item:hover { transform: scale(1.02); filter: brightness(1.1); box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+
+        /* Lightbox */
+        #lightbox {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95); z-index: 10000;
+            display: none; justify-content: center; align-items: center;
+            flex-direction: column; backdrop-filter: blur(5px);
+        }
+        #lightbox img { max-width: 95%; max-height: 85%; border: 2px solid var(--gold); border-radius: 4px; box-shadow: 0 0 30px rgba(197, 160, 89, 0.5); }
+        .lightbox-close { color: #fff; font-size: 2.5rem; position: absolute; top: 20px; right: 30px; cursor: pointer; z-index: 10001; }
+        
+        /* Navigation Arrows */
+        .lightbox-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            color: var(--gold); font-size: 2.5rem; cursor: pointer;
+            padding: 10px; user-select: none; z-index: 10001;
+            background: rgba(0,0,0,0.3); border-radius: 50%; width: 50px; height: 50px;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .lightbox-btn:hover { background: rgba(197, 160, 89, 0.2); color: #fff; }
+        .lightbox-prev { left: 10px; }
+        .lightbox-next { right: 10px; }
+
+        /* --- 9. FLOATING CONTROLS --- */
+        .floating-controls { position: fixed; bottom: 80px; right: 15px; z-index: 2000; display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+        .float-btn { background: rgba(11, 29, 63, 0.9); border: 1px solid var(--gold); color: var(--gold-bright); padding: 6px 12px; border-radius: 50px; font-size: 0.65rem; font-family: 'Cinzel', serif; text-transform: uppercase; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.5); display: flex; align-items: center; gap: 5px; }
+        .float-btn:hover { background: var(--gold); color: var(--bg-dark); }
+        .float-btn.hidden { display: none !important; }
+
+        /* --- 10. FOOTER --- */
+        .sticky-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(8, 22, 48, 0.95); border-top: 2px solid var(--gold); display: flex; justify-content: space-between; padding: 0; z-index: 1000; box-shadow: 0 -5px 20px rgba(0,0,0,0.8); }
+        .nav-item { flex-grow: 1; text-align: center; padding: 12px 0; color: var(--text-muted); text-decoration: none; font-size: 0.75rem; border-right: 1px solid rgba(255,255,255,0.05); cursor: pointer; transition: all 0.2s; }
+        .nav-item:last-child { border-right: none; } .nav-item i { display: block; font-size: 1.2rem; margin-bottom: 4px; color: var(--gold); }
+        
+        @media (max-width: 400px) { .couple-name { font-size: 3.5rem; } }
+	
+	.pulse-once {
+    animation: pulseOnce 1.5s ease-in-out 1;
+}
+
+@keyframes pulseOnce {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+.vows-nav-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.vows-nav {
+    background: rgba(11, 29, 63, 0.9);
+    border: 1px solid var(--gold);
+    color: var(--gold-bright);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    transition: all 0.3s;
+}
+
+.vows-nav:hover {
+    background: var(--gold);
+    color: var(--bg-dark);
+}
+
+.vows-nav.left {
+    margin-right: 8px;
+}
+
+.vows-nav.right {
+    margin-left: 8px;
+}
+
+.event-card.completed {
+    opacity: 0.45;
+    filter: grayscale(0.2);
+}
+
+.completed-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(197, 160, 89, 0.9);
+    color: #0b1d3f;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.event-location-badge {
+    left: auto;
+    right: 15px;
+}
+
+
+.event-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="lang-btn" onclick="toggleLangMenu()">
+        <i class="fas fa-language"></i>
+    </div>
+
+    <div class="lang-menu" id="lang-menu">
+        <div class="lang-option" onclick="setLanguage('en')">English</div>
+        <div class="lang-option" onclick="setLanguage('mr')">मराठी</div>
+        <div class="lang-option" onclick="setLanguage('hi')">हिंदी</div>
+    </div>
+
+    <div id="dust-container"></div>
+
+    <div class="top-ribbon" id="top-ribbon"></div>
+
+    <div class="family-header">
+        <div class="fam-names" data-lang="fam_names">The Kolapkar & Singh Families</div>
+        <p class="fam-msg" data-lang="fam_msg">Cordially invite you to the joyous union of our beloved Son & Daughter</p>
+    </div>
+
+    <div class="hero">
+        <div class="wedding-tagline" data-lang="wedding_tagline">The Royal Union Of</div>
+        <h1 class="couple-name">Rohit & Shivangi</h1>
+        <div class="hero-date" data-lang="wedding_date">19th & 20th February 2026</div>
+    </div>
+
+    <div class="status-wrapper">
+        <div id="countdown-card" class="transparent-card">
+            <span class="card-header-text" data-lang="countdown_title">Counting Down To Forever</span>
+            <div class="countdown-grid">
+                <div class="timer-item"><span class="timer-val" id="days">00</span><span class="timer-label">Days</span></div>
+                <div class="timer-item"><span class="timer-val" id="hours">00</span><span class="timer-label">Hrs</span></div>
+                <div class="timer-item"><span class="timer-val" id="minutes">00</span><span class="timer-label">Mins</span></div>
+                <div class="timer-item"><span class="timer-val" id="seconds">00</span><span class="timer-label">Secs</span></div>
+            </div>
+        </div>
+        <div id="updates-card" class="transparent-card" style="display: none;">
+            <span class="status-badge" id="status-badge">Updates</span>
+            <div class="current-event-text" id="live-text">Waiting...</div>
+            <small class="text-muted" id="sub-text" style="font-family:'Lato'; font-style: italic;">Check itinerary</small>
+        </div>
+    </div>
+
+    <div class="about-section">
+        <div class="about-title" data-lang="story_title">A Union Written in Stars</div>
+        <p class="about-text" data-lang="story_text">
+            Two families, diverse cultures, one eternal love. We, the Kolapkar & Singh families, invite you to join us as we blend our beautiful traditions into a symphony of joy and togetherness. 
+            We, the <strong>Kolapkar & Singh Families</strong>, invite you to join us 
+            as we blend our beautiful traditions into a symphony of joy and togetherness.
+        </p>
+        <div class="about-sub" data-lang="story_sub">~ Witness the unfolding of our forever ~</div>
+    </div>
+
+    <div id="itinerary-wrapper"></div>
+
+    <div class="gallery-section">
+        <div class="about-title" data-lang="gallery_title">Captured Moments</div>
+        <div id="gallery-grid">
+            <img src="images/pic1.jpeg" class="gallery-item" onclick="openLightbox(0)" onerror="this.style.display='none'">
+            <img src="images/pic2.jpeg" class="gallery-item" onclick="openLightbox(1)" onerror="this.style.display='none'">
+            <img src="images/pic3.jpeg" class="gallery-item" onclick="openLightbox(2)" onerror="this.style.display='none'">
+            <img src="images/pic4.jpeg" class="gallery-item" onclick="openLightbox(3)" onerror="this.style.display='none'">
+            <img src="images/pic5.jpeg" class="gallery-item" onclick="openLightbox(4)" onerror="this.style.display='none'">
+            <img src="images/pic6.jpeg" class="gallery-item" onclick="openLightbox(5)" onerror="this.style.display='none'">
+            <img src="images/pic7.jpeg" class="gallery-item" onclick="openLightbox(6)" onerror="this.style.display='none'">
+            <img src="images/pic8.jpeg" class="gallery-item" onclick="openLightbox(7)" onerror="this.style.display='none'">
+            <img src="images/pic9.jpeg" class="gallery-item" onclick="openLightbox(8)" onerror="this.style.display='none'">
+            
+        </div>
+    </div>
+
+    <div id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <div class="lightbox-btn lightbox-prev" onclick="changeImage(-1)">&#10094;</div>
+        <img id="lightbox-img" src="">
+        <div class="lightbox-btn lightbox-next" onclick="changeImage(1)">&#10095;</div>
+    </div>
+
+    <div class="floating-controls">
+        <button id="btn-current" class="float-btn hidden" onclick="scrollToCurrent()"><i class="fas fa-dot-circle"></i> Current</button>
+        <button id="btn-next" class="float-btn hidden" onclick="scrollToNext()"><i class="fas fa-forward"></i> Next</button>
+        <button id="btn-top" class="float-btn" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i> Top</button>
+    </div>
+
+    <div class="sticky-nav">
+        <a href="tel:+919421959601" class="nav-item"><i class="fas fa-phone"></i> RSVP</a>
+        <a href="https://www.instagram.com/theroshitales/?hl=en" target="_blank" class="nav-item">
+            <i class="fab fa-instagram"></i> theroshitales
+        </a>
+        <a href="map.html" class="nav-item"><i class="fas fa-map-marker-alt"></i> Venue</a>
+    </div>
+
+    <script>
+        // --- CONFIGURATION ---
+        const day1 = "2026-02-19"; 
+        const day2 = "2026-02-20"; 
+        const postWeddingDate = "2026-02-21"; 
+        let currentEventId = null;
+        let nextEventId = null;
+        let currentLang = 'en';
+
+        // --- 1. GENERATE HEARTS ---
+        const dustContainer = document.getElementById('dust-container');
+        for(let i=0; i<40; i++) {
+            let heart = document.createElement('div');
+            let isRed = Math.random() < 0.25;
+            heart.className = isRed ? 'shimmer-heart heart-red' : 'shimmer-heart heart-gold';
+            heart.innerHTML = '<i class="fas fa-heart"></i>';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.fontSize = (Math.random() * 10 + 8) + 'px';
+            heart.style.animationDelay = Math.random() * 15 + 's';
+            heart.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            dustContainer.appendChild(heart);
+        }
+
+        // --- LIGHTBOX NAVIGATION LOGIC ---
+        let currentImageIndex = 0;
+        
+        function getVisibleImages() {
+            const allImages = document.querySelectorAll('.gallery-item');
+            return Array.from(allImages).filter(img => img.style.display !== 'none');
+        }
+
+        function openLightbox(index) {
+            const visibleImages = getVisibleImages();
+            const clickedSrc = document.querySelectorAll('.gallery-item')[index].src;
+            currentImageIndex = visibleImages.findIndex(img => img.src === clickedSrc);
+            if (currentImageIndex !== -1) {
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+                lightboxImg.src = visibleImages[currentImageIndex].src;
+                lightbox.style.display = 'flex';
+            }
+        }
+
+        function changeImage(direction) {
+            const visibleImages = getVisibleImages();
+            if (visibleImages.length === 0) return;
+            currentImageIndex += direction;
+            if (currentImageIndex >= visibleImages.length) currentImageIndex = 0;
+            if (currentImageIndex < 0) currentImageIndex = visibleImages.length - 1;
+            document.getElementById('lightbox-img').src = visibleImages[currentImageIndex].src;
+        }
+
+        function closeLightbox() { document.getElementById('lightbox').style.display = 'none'; }
+
+        document.addEventListener('keydown', function(event) {
+            if (document.getElementById('lightbox').style.display === 'flex') {
+                if (event.key === "ArrowLeft") changeImage(-1);
+                if (event.key === "ArrowRight") changeImage(1);
+                if (event.key === "Escape") closeLightbox();
+            }
+        });
+        
+        let touchStartX = 0;
+        let touchEndX = 0;
+        document.getElementById('lightbox').addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+        document.getElementById('lightbox').addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchEndX < touchStartX - 50) changeImage(1);
+            if (touchEndX > touchStartX + 50) changeImage(-1);
+        });
+
+        // --- MULTI-LANGUAGE DATA ---
+        const translations = {
+            en: {
+                fam_names: "The Kolapkar & Singh Families",
+                fam_msg: "Cordially invite you to the joyous union of our beloved Son & Daughter",
+                wedding_tagline: "The Royal Union Of",
+                wedding_date: "19th & 20th February 2026",
+                countdown_title: "Counting Down To Forever",
+                story_title: "A Union Written in Stars",
+                story_text: "Two families, diverse cultures, one eternal love. We, the <strong>Kolapkar & Singh Families</strong>, invite you to join us as we blend our beautiful traditions into a symphony of joy and togetherness.",
+                story_sub: "~ Witness the unfolding of our forever ~",
+                gallery_title: "Captured Moments",
+                day1_label: "Feb 19 • Day 01",
+                day2_label: "Feb 20 • Day 02",
+                btn_rsvp: "RSVP",
+                btn_venue: "Venue",
+                btn_share: "theroshitales"
+            },
+            mr: {
+                fam_names: "कोळपकर आणि सिंग परिवार",
+                fam_msg: "आमच्या प्रिय सुपुत्र आणि सुकन्येच्या शुभ विवाहास आम्ही आपणास स्नेहपूर्वक आमंत्रित करीत आहोत.",
+                wedding_tagline: "एक शाही विवाह सोहळा",
+                wedding_date: "१९ आणि २० फेब्रुवारी २०२६",
+                countdown_title: "शुभ विवाहाची घटिका समीप",
+                story_title: "नक्षत्रांनी जुळवलेले रेशीमबंध",
+                story_text: "दोन परिवार, भिन्न संस्कृती, आणि प्रेमळ नाती. <strong>कोळपकर आणि सिंग परिवार</strong>, आमच्या सुंदर परंपरांच्या या पवित्र संगमात आणि आनंदाच्या सोहळ्यात सहभागी होण्यासाठी आपणास स्नेहपूर्वक आमंत्रित करीत आहोत.",
+                story_sub: "~ या अनंत प्रवासाचे साक्षीदार व्हा ~",
+                gallery_title: "काही खास क्षण",
+                day1_label: "१९ फेब्रुवारी • दिवस पहिला",
+                day2_label: "२० फेब्रुवारी • दिवस दुसरा",
+                btn_rsvp: "संपर्क",
+                btn_venue: "स्थळ",
+                btn_share: "आमचे पेज"
+            },
+            hi: {
+                fam_names: "कोलपकर और सिंह परिवार",
+                fam_msg: "हमारे प्रिय सुपुत्र और सुपुत्री के शुभ विवाह समारोह में आपको सादर आमंत्रित करते हैं।",
+                wedding_tagline: "एक शाही मिलन",
+                wedding_date: "१९ और २० फरवरी २०२६",
+                countdown_title: "शुभ विवाह की अनमोल घड़ियाँ",
+                story_title: "सितारों से सजा यह अटूट बंधन",
+                story_text: "दो परिवार, विविध संस्कृतियाँ, और एक अटूट रिश्ता। <strong>कोलपकर और सिंह परिवार</strong>, हमारी सुंदर परंपराओं के इस मधुर संगम और खुशियों के उत्सव में सम्मिलित होने के लिए आपको सादर आमंत्रित करते हैं।",
+                story_sub: "~ हमारे इस अनंत सफर के साक्षी बनें ~",
+                gallery_title: "यादों के झरोखे से",
+                day1_label: "१९ फरवरी • प्रथम दिवस",
+                day2_label: "२० फरवरी • द्वितीय दिवस",
+                btn_rsvp: "संपर्क",
+                btn_venue: "स्थान",
+                btn_share: "इंस्टाग्राम"
+            }
+        };
+
+        const eventContent = {
+            en: {
+                e1_tag: "The Royal Welcome", e1_desc: "Welcoming the Groom's family with warmth, dhol, and joyous celebrations.", e1_dtl: "A grand tradition where the bride's family welcomes the groom's procession (Varhad) with traditional music (dhol-tasha) and floral showers. It symbolizes respect and the merging of two families.",
+                e2_tag: "The Mark of Honor", e2_desc: "A formal acceptance and honoring of the groom by the bride's family.", e2_dtl: "The bride's brother or father applies a Tilak (sacred mark) on the groom's forehead, signifying his acceptance into the family. Gifts are exchanged as a token of goodwill.",
+                e3_tag: "The Sacred Meeting", e3_desc: "Join us for Seemant Pujan, a heartfelt ceremony celebrating unity, respect, and the coming together of two families.", e3_dtl: "A traditional boundary worship ceremony honoring the groom & the bride before the wedding rituals.",
+                e4_tag: "A Ritual of Radiance", e4_desc: "Bathed in turmeric and love, the bride and groom glow with pre-wedding radiance.", e4_dtl: "A fun-filled ritual where turmeric paste is applied to the bride and groom to purify and beautify them. It is believed to ward off evil spirits and bring a natural glow.",
+                e5_tag: "A Symphony of Joy", e5_desc: "A spectacular night of dance, music, and celebration as two families become one.", e5_dtl: "A musical extravaganza where both families perform dances and songs to celebrate the union. It's a night of laughter, joy, and bonding before the big day.",
+                e6_tag: "The Sacred Union", e6_desc: "The auspicious moment arrives. We take our sacred vows around the holy fire.",
+                e7_tag: "A Toast to New Beginnings", e7_desc: "Witness the sacred Varmala ceremony as we take the first step together toward a lifetime of togetherness, surrounded by love and blessings.", e7_dtl: "A formal gathering to introduce the newlyweds to family, friends, and the extended society, followed by a grand feast, heartfelt conversations, and celebrations."
+            },
+            mr: {
+                e1_tag: "शाही स्वागत", e1_desc: "वर पक्षाचे वाजत-गाजत, ढोल-ताश्यांच्या गजरात आणि आनंदाने केलेले पारंपरिक स्वागत.", e1_dtl: "ही एक भव्य परंपरा आहे जिथे वधुचे कुटुंब वर पक्षाचे (वऱ्हाडी मंडळींचे) स्वागत पारंपरिक वाद्ये, ढोल-ताशा आणि पुष्पवृष्टी करून करते. हे दोन कुटुंबांच्या मिलनाचे प्रतीक आहे.",
+                e2_tag: "सन्मानाचे प्रतीक", e2_desc: "वधूच्या कुटुंबाकडून वराचा स्वीकार आणि सन्मान करण्याचा विधी.", e2_dtl: "वधूचे वडील किंवा भाऊ वराच्या कपाळावर टिळा (तिलक) लावून त्याचा कुटुंबात स्वीकार करतात.",
+                e3_tag: "सीमांत पूजन", e3_desc: "स्नेह, सन्मान आणि दोन कुळांच्या पवित्र संगमाचा भव्य सोहळा!'सीमंत पूजना'च्या या मांगल्यपर्वावर आपले अगत्याचे स्वागत.", e3_dtl: "विवाह संस्कारांच्या शुभारंभापूर्वी, वधु-वरांच्या यथोचित सन्मानार्थ आणि सीमोल्लंघनासाठी संपन्न होणारा हा पारंपरिक विधी.",
+                e4_tag: "तेजस्वी विधी", e4_desc: "हळदीचा लेप आणि प्रेमाचा स्पर्श; नवरदेव आणि नवरीच्या चेहऱ्यावर लग्नाचे तेज.", e4_dtl: "हा एक आनंददायी विधी आहे जिथे वधू-वरांना हळद लावून पवित्र केले जाते. असे मानले जाते की यामुळे नैसर्गिक तेज येते आणि वाईट शक्तींपासून संरक्षण होते.",
+                e5_tag: "आनंदाचा उत्सव", e5_desc: "संगीत, नृत्य आणि धम्माल! दोन कुटुंबांचे मिलन साजरे करणारी एक अविस्मरणीय रात्र.", e5_dtl: "हा संगीताचा उत्सव आहे जिथे दोन्ही कुटुंबे नृत्य आणि गाण्यांद्वारे या मिलनाचा आनंद साजरा करतात. लग्नाआधीच्या या रात्री हास्य, विनोद आणि कौटुंबिक जिव्हाळा अनुभवता येतो.",
+                e6_tag: "पवित्र बंधन", e6_desc: "मंगलाष्टके, होम आणि सप्तपदी... अग्निसाक्षीने दोन जिवांचे मिलन.",
+                e7_tag: "नवी सुरुवात", e7_desc: "प्रेम आणि आशीर्वादांच्या साक्षिने, आयुष्यभराच्या सहजीवनाचे पहिले पाऊल टाकणाऱ्या या पवित्र 'वरमाला' सोहळ्याचे साक्षीदार व्हा.", e7_dtl: "नवदांपत्याचा आप्तेष्ट, मित्रपरिवार आणि समाजाशी परिचय करून देणारा हा स्नेहमेळावा. सोबतच शाही मेजवानी, मनमुराद संवाद आणि आनंदोत्सव!"
+            },
+            hi: {
+                e1_tag: "शाही स्वागत", e1_desc: "वर पक्ष का ढोल-नगाड़ों और फूलों के साथ भव्य और आत्मीय स्वागत।", e1_dtl: "यह एक भव्य परंपरा है जहाँ वधू का परिवार वर पक्ष (बारातियों) का स्वागत पारंपरिक संगीत, ढोल-ताशा और फूलों की वर्षा के साथ करता है।",
+                e2_tag: "सम्मान का प्रतीक", e2_desc: "वधू पक्ष द्वारा वर का औपचारिक रूप से स्वीकार और तिलक द्वारा सम्मान।", e2_dtl: "वधू के पिता या भाई वर के माथे पर तिलक लगाकर परिवार में उनका स्वागत करते हैं। शगुन के तौर पर उपहारों का आदान-प्रदान किया जाता है।",
+                e3_tag: "पवित्र मिलन", e3_desc: "स्नेह, सम्मान और दो कुलों के पवित्र संगम का भव्य समारोह! 'सीमंत पूजन' की इस मंगल बेला पर आपका सादर आमंत्रण।", e3_dtl: "विवाह संस्कारों के शुभारंभ से पूर्व, वधु-वर के यथोचित सम्मान और सीमोल्लंघन हेतु संपन्न होने वाली यह गौरवशाली परंपरा।",
+                e4_tag: "निखार की रस्म", e4_desc: "हल्दी का उबटन और बड़ों का आशीर्वाद; दूल्हा-दुल्हन के चेहरे पर शादी का नूर।", e4_dtl: "हल्दी और चंदन का उबटन लगाकर वधू और वर को निखारा जाता है। यह रस्म उन्हें बुरी नजर से बचाने और विवाह का तेज लाने के लिए की जाती है।",
+                e5_tag: "संगीत की रात", e5_desc: "नाच, गाना और जश्न! जब दो परिवार मिलकर खुशी के रंग में रंग जाएंगे।", e5_dtl: "संगीत और नृत्य की एक शानदार शाम जहाँ दोनों परिवार मिलन का उत्सव मनाते हैं। यह विवाह से पहले हंसी, खुशी और रिश्तों को मजबूत करने का समय है।",
+                e6_tag: "सात वचन", e6_desc: "शुभ मुहूर्त और अग्नि को साक्षी मानकर, सात जन्मों के लिए एक होने का पवित्र क्षण।",
+                e7_tag: "स्वागत समारोह", e7_desc: "प्रेम और आशीर्वाद की मंगल छाया में, आजीवन साहचर्य की ओर उठते प्रथम कदम के साक्षी बनने हेतु, पवित्र 'वरमाला' समारोह में आपका स्वागत है।", e7_dtl: "नव-दंपति के परिचय हेतु आयोजित यह स्नेह-मिलन समारोह। साथ ही शाही भोज, आत्मीय संवाद और आनंद-उत्सव!"
+            }
+        };
+
+        const saptapadiData = {
+            en: [
+                {t: "॥ प्रथम पद : तीर्थव्रत ॥", m: "\"You will offer me food and be helpful in every way. I will cherish you and provide welfare for our family.\""},
+                {t: "॥ द्वितीय पद : ऊर्जाव्रत ॥", m: "\"Together we will protect our house and children. You will be my strength and courage.\""},
+                {t: "॥ तृतीय पद : रायस्पोष ॥", m: "\"We will grow wealthy and prosperous together, and educate our children to be wise and noble.\""},
+                {t: "॥ चतुर्थ पद : मयोभव ॥", m: "\"You will bring happiness and sacredness to my life. May we be blessed with noble children.\""},
+                {t: "॥ पंचम पद : प्रजाभ्यः ॥", m: "\"We will be blessed with healthy, brave, and noble children. You are my best friend and well-wisher.\""},
+                {t: "॥ षष्ठम पद : ऋतुभ्यः ॥", m: "\"We will fill our hearts with joy and peace in all seasons. I will be there for you in all times.\""},
+                {t: "॥ सप्तम पद : सखा ॥", m: "\"We are now friends and eternal companions. I am yours and you are mine for eternity.\""}
+            ],
+            mr: [
+                {t: "॥ प्रथम पद : तीर्थव्रत ॥", m: "\"तू मला अन्नपूर्णा बनून साथ देशील. मी तुझा आदर करेन आणि आपल्या कुटुंबाच्या कल्याणाची जबाबदारी घेईन.\""},
+                {t: "॥ द्वितीय पद : ऊर्जाव्रत ॥", m: "\"आपण मिळून आपल्या घराचे आणि मुलांचे रक्षण करू. तू माझी शक्ती आणि धैर्य बनशील.\""},
+                {t: "॥ तृतीय पद : रायस्पोष ॥", m: "\"आपण एकत्र समृद्धी आणि धन प्राप्त करू, आणि आपल्या मुलांना सुसंस्कृत व ज्ञानी बनवू.\""},
+                {t: "॥ चतुर्थ पद : मयोभव ॥", m: "\"तू माझ्या आयुष्यात सुख आणि पवित्रता आणशील. आपल्याला उत्तम आणि गुणी संतती लाभो.\""},
+                {t: "॥ पंचम पद : प्रजाभ्यः ॥", m: "\"आपल्याला निरोगी, शूर आणि आदर्श मुले प्राप्त होत. तू माझी सर्वात जवळची मैत्रीण आणि शुभचिंतक आहेस.\""},
+                {t: "॥ षष्ठम पद : ऋतुभ्यः ॥", m: "\"आपण प्रत्येक ऋतूत आणि काळात एकमेकांच्या सोबतीने आनंद आणि शांती अनुभवू. मी सदैव तुझ्या पाठीशी असेन.\""},
+                {t: "॥ सप्तम पद : सखा ॥", m: "\"आता आपण मित्र आणि अनंत काळाचे सोबती आहोत. मी तुझा आहे आणि तू माझी आहेस, हे बंधन आता शाश्वत आहे.\""}
+            ],
+            hi: [
+                {t: "॥ प्रथम पद : तीर्थव्रत ॥", m: "\"तुम अन्नपूर्णा बनकर मेरा साथ दोगी। मैं तुम्हारा सम्मान करूँगा और हमारे परिवार के कल्याण का दायित्व निभाऊँगा।\""},
+                {t: "॥ द्वितीय पद : ऊर्जाव्रत ॥", m: "\"हम मिलकर अपने घर और संतानों की रक्षा करेंगे। तुम मेरी शक्ति और साहस बनोगी।\""},
+                {t: "॥ तृतीय पद : रायस्पोष ॥", m: "\"हम साथ मिलकर समृद्धि और धन अर्जित करेंगे, और अपने बच्चों को संस्कारवान और ज्ञानी बनाएंगे।\""},
+                {t: "॥ चतुर्थ पद : मयोभव ॥", m: "\"तुम मेरे जीवन में सुख और पवित्रता लाओगी। ईश्वर हमें गुणी संतान का आशीर्वाद दें।\""},
+                {t: "॥ पंचम पद : प्रजाभ्यः ॥", m: "\"हमें स्वस्थ, वीर और आदर्श संतान प्राप्त हों। तुम मेरी सबसे अच्छी मित्र और शुभचिंतक हो।\""},
+                {t: "॥ षष्ठम पद : ऋतुभ्यः ॥", m: "\"हम हर ऋतु और हर समय में एक-दूसरे के साथ सुख और शांति का अनुभव करेंगे। मैं सदैव तुम्हारे साथ रहूँगा।\""},
+                {t: "॥ सप्तम पद : सखा ॥", m: "\"अब हम मित्र और अनंत काल के साथी हैं। मैं तुम्हारा हूँ और तुम मेरी हो, यह बंधन अब शाश्वत है।\""}
+            ]
+        };
+
+        // --- RENDER FUNCTIONS ---
+        function toggleLangMenu() { document.getElementById('lang-menu').classList.toggle('show'); }
+        
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.body.classList.remove('lang-en', 'lang-mr', 'lang-hi');
+            document.body.classList.add('lang-' + lang);
+
+            const t = translations[lang];
+            
+            // 1. Static Text
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                const key = el.getAttribute('data-lang');
+                if (t[key]) el.innerHTML = t[key];
+            });
+
+            // 2. Buttons
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems[0].innerHTML = `<i class="fas fa-phone"></i> ${t.btn_rsvp}`;
+            navItems[2].innerHTML = `<i class="fas fa-map-marker-alt"></i> ${t.btn_venue}`;
+
+            // 3. Re-Render Itinerary
+            renderItinerary(lang);
+            document.getElementById('lang-menu').classList.remove('show');
+
+		document.querySelectorAll('.lang-option').forEach(opt => {
+    opt.classList.remove('active');
+});
+document
+    .querySelector(`.lang-option[onclick="setLanguage('${lang}')"]`)
+    ?.classList.add('active');
+
+        }
+
+        // --- SCHEDULE DATA (NO HASTAKSHAR) ---
+        const scheduleData = [
+            {
+        date: day1,
+        events: [
+            {
+                time: "09:00 AM",
+                royalTitle: "शुभ आगमन",
+                cultural: "Varhad Swagat",
+                location: "Front Lawns",
+                id: "e1"
+            },
+            {
+                time: "10:30 AM",
+                royalTitle: "तिलक उत्सव",
+                cultural: "Tilak Ceremony",
+                location: "Banquet Hall",
+                id: "e2"
+            },
+            {
+                time: "11:00 AM",
+                royalTitle: "सीमांत सोहळा",
+                cultural: "Seemant Pujan",
+                location: "Banquet Hall",
+                id: "e3"
+            },
+            {
+                time: "05:00 PM",
+                royalTitle: "तेजोमय",
+                cultural: "Haldi Samarambh",
+                location: "Front Lawns",
+                id: "e4"
+            },
+            {
+                time: "07:30 PM",
+                royalTitle: "जलसा",
+                cultural: "Sangeet Sandhya",
+                location: "Back Lawns",
+                id: "e5"
+            }
+        ]
+    },
+    {
+        date: day2,
+        events: [
+            {
+                time: "12:20 PM",
+                royalTitle: "अनंत संयोग",
+                cultural: "Vaidik Vivah & Saptapadi",
+                location: "Banquet Hall",
+                id: "e6"
+            },
+            {
+                time: "07:00 PM",
+                royalTitle: "मंगल उत्सव",
+                cultural: "Varmala & Reception",
+                location: "Front Lawns",
+                id: "e7"
+            }
+        ]
+    }
+];
+
+        function renderItinerary(lang) {
+            const wrapper = document.getElementById('itinerary-wrapper');
+            wrapper.innerHTML = '';
+            
+            const eContent = eventContent[lang];
+            const t = translations[lang];
+            
+            scheduleData.forEach((day, dIndex) => {
+                let dayLabel = (dIndex === 0) ? t.day1_label : t.day2_label;
+                
+                let eventsHtml = day.events.map((ev, i) => {
+                    let tagline = eContent[ev.id + "_tag"];
+                    let desc = eContent[ev.id + "_desc"];
+                    let details = "";
+                    
+                    if (ev.id === "e6") {
+                        // Saptapadi Special Logic
+                        let vowHtml = saptapadiData[lang].map(v => 
+                            `<div class="vow-card">
+                                <div class="vow-mantra-title">${v.t}</div>
+                                <div class="vow-meaning">${v.m}</div>
+                            </div>`
+                        ).join('');
+                        
+                        let intro = lang === 'en' ? "The Seven Vows (Saptapadi) taken around the holy fire, binding the souls for eternity." 
+                                  : (lang === 'mr' ? "अग्निसाक्षीने घेतलेली सात वचने, जी दोन जिवांना जन्मोजन्मीसाठी बांधून ठेवतात." 
+                                  : "अग्नि को साक्षी मानकर लिए गए सात वचन, जो दो आत्माओं को सदा के लिए जोड़ते हैं।");
+                                  
+                        details = `
+<p style="margin-bottom:15px;">${intro}</p>
+
+<div class="vows-nav-wrapper">
+    <button class="vows-nav left" onclick="scrollVows(this, -1)">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <div class="vows-scroll-wrapper">${vowHtml}</div>
+
+    <button class="vows-nav right" onclick="scrollVows(this, 1)">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+</div>`;
+                    } else {
+                        details = eContent[ev.id + "_dtl"];
+                    }
+
+                    return `
+                    <div class="event-card" id="ev-${day.date}-${i}">
+    <span class="completed-badge" style="display:none;">✓ Completed</span>
+                        <span class="card-live-badge">LIVE</span>
+                        <div class="event-top-row">
+    <span class="event-time-badge"> ${ev.time}</span>
+    <span class="event-time-badge event-location-badge"> ${ev.location}</span>
+</div>
+                        <h3 class="royal-hindi-title">${ev.royalTitle}</h3>
+                        <div class="english-tagline">${tagline}</div>
+                        <div class="cultural-context">${ev.cultural}</div>
+                        <p class="event-desc">${desc}</p>
+                        
+                        <button class="btn-learn-more" onclick="toggleDetails('details-${day.date}-${i}', this)">
+                            ${lang === 'en' ? 'Learn More' : (lang === 'mr' ? 'अधिक माहिती' : 'विस्तृत विवरण')} <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div id="details-${day.date}-${i}" class="event-details-content">
+                            ${details}
+                        </div>
+                    </div>
+                    ${i < day.events.length - 1 ? '<div class="royal-divider">~ ✦ ~</div>' : ''}
+                    `;
+                }).join('');
+
+                wrapper.innerHTML += `
+                    <div class="day-wrapper">
+                        <div class="day-header">
+                            <div class="day-line"></div>
+                            <div class="day-title">${dayLabel}</div>
+                            <div class="day-line"></div>
+                        </div>
+                        <div class="timeline">${eventsHtml}</div>
+                    </div>
+                `;
+            });
+            
+            // Re-bind scroll observer
+            document.querySelectorAll('.event-card').forEach(el => observer.observe(el));
+        }
+
+        // --- DASHBOARD & SCROLL LOGIC ---
+        function generateMarqueeHTML(text) {
+            let set = `<span class="marquee-item">${text}</span>`.repeat(4);
+            return `<div class="marquee-track"><div class="marquee-content">${set}</div><div class="marquee-content">${set}</div></div>`;
+        }
+
+        function updateDashboard() {
+            const now = new Date();
+            const currentDateStr = now.toISOString().split('T')[0];
+            const ribbon = document.getElementById('top-ribbon');
+            const countdownCard = document.getElementById('countdown-card');
+            const updatesCard = document.getElementById('updates-card');
+            
+            const btnCurrent = document.getElementById('btn-current');
+            const btnNext = document.getElementById('btn-next');
+
+            let ribbonText = "#TheRoShiSaga <i class='fas fa-heart'></i>"; 
+            let isWeddingDay = (currentDateStr === day1 || currentDateStr === day2);
+            let activeEventFound = false;
+            let nextEventFound = null;
+		let activeStartTime = null;
+document.querySelectorAll('.event-card').forEach(el => el.classList.remove('active'));
+            
+            btnCurrent.classList.add('hidden');
+            btnNext.classList.add('hidden');
+
+            const weddingStart = new Date(`${day1}T09:00:00`);
+            const diff = weddingStart - now;
+
+            if (diff > 0) {
+                countdownCard.style.display = 'block'; updatesCard.style.display = 'none';
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+                document.getElementById('days').innerText = d < 10 ? '0'+d : d;
+                document.getElementById('hours').innerText = h < 10 ? '0'+h : h;
+                document.getElementById('minutes').innerText = m < 10 ? '0'+m : m;
+                document.getElementById('seconds').innerText = s < 10 ? '0'+s : s;
+            } else {
+                countdownCard.style.display = 'none'; updatesCard.style.display = 'block';
+                document.querySelectorAll('.event-card').forEach(el => el.classList.remove('active'));
+
+                // Simple check for active event
+                scheduleData.forEach((day) => {
+                     day.events.forEach((ev, i) => {
+                        let timeParts = ev.time.match(/(\d+):(\d+) (AM|PM)/);
+                        let hour = parseInt(timeParts[1]);
+                        if (timeParts[3] === "PM" && hour !== 12) hour += 12;
+                        if (timeParts[3] === "AM" && hour === 12) hour = 0;
+                        const startTime = new Date(`${day.date}T${hour < 10 ? '0'+hour : hour}:${timeParts[2]}:00`);
+                        let duration = 2 * 60 * 60 * 1000;
+                        const endTime = new Date(startTime.getTime() + duration); 
+			const card = document.getElementById(`ev-${day.date}-${i}`);
+if (card && now > endTime && !card.classList.contains('active')) {
+    card.classList.add('completed');
+    const badge = card.querySelector('.completed-badge');
+    if (badge) badge.style.display = 'block';
+}
+
+                        if (
+    now >= startTime &&
+    now < endTime &&
+    (!activeStartTime || startTime > activeStartTime)
+) {
+    activeStartTime = startTime;
+                            activeEventFound = true;
+                            if(isWeddingDay) ribbonText = `LIVE<span class='ribbon-live-dot'></span>: <span style="font-family:'Rozha One'">${ev.royalTitle}</span>`;
+                            document.getElementById('status-badge').innerText = "LIVE NOW";
+                            document.getElementById('status-badge').classList.add('live-active');
+                            document.getElementById('live-text').innerHTML = `${ev.royalTitle}`; 
+                            document.getElementById('sub-text').innerText =
+    `Happening now at ${ev.location}`;
+                            const card = document.getElementById(`ev-${day.date}-${i}`);
+document.querySelectorAll('.event-card.active')
+    .forEach(el => el.classList.remove('active'));
+                            if (card) {
+    card.classList.remove('completed');
+    const badge = card.querySelector('.completed-badge');
+    if (badge) badge.style.display = 'none';
+    card.classList.add('active');
+}
+                            currentEventId = `ev-${day.date}-${i}`;
+			if (isWeddingDay && !sessionStorage.getItem('autoScrolled')) {
+    			setTimeout(() => {
+        		card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    			}, 800);
+   			 sessionStorage.setItem('autoScrolled', 'yes');
+			}
+                            if(isWeddingDay) btnCurrent.classList.remove('hidden');
+				if (!sessionStorage.getItem('currentPulseShown')) {
+    btnCurrent.classList.add('pulse-once');
+    sessionStorage.setItem('currentPulseShown', 'yes');
+}
+
+sessionStorage.setItem("eventStatus", JSON.stringify({
+    state: "LIVE",
+    title: ev.royalTitle
+}));
+
+                        }
+                        if (now < startTime && !nextEventFound) {
+                            nextEventFound = ev;
+                            nextEventId = `ev-${day.date}-${i}`;
+                            if(isWeddingDay) btnNext.classList.remove('hidden');
+                        }
+                     });
+                });
+
+                if (!activeEventFound) {
+                    document.getElementById('status-badge').classList.remove('live-active');
+                    if (nextEventFound) {
+                        if(isWeddingDay) ribbonText = `UP NEXT: <span style="font-family:'Rozha One'">${nextEventFound.royalTitle}</span> (${nextEventFound.time}) <i class='fas fa-hourglass-half'></i>`;
+                        document.getElementById('live-text').innerHTML = nextEventFound.royalTitle;
+                        document.getElementById('sub-text').innerText =
+    `Starts at ${nextEventFound.time} · ${nextEventFound.location}`;
+sessionStorage.setItem("eventStatus", JSON.stringify({
+    state: "NEXT",
+    title: nextEventFound.royalTitle
+}));
+                    } else if (now > new Date(day2 + "T23:59:00")) {
+                        ribbonText = "JUST MARRIED ❤️ ROHIT & SHIVANGI";
+                        document.getElementById('live-text').innerText = "Just Married! ❤️";
+                        document.getElementById('sub-text').innerText = "Thank you for celebrating with us";
+sessionStorage.setItem("eventStatus", JSON.stringify({
+    state: "UPCOMING",
+    title: ""
+}));
+                    }
+                }
+            }
+
+            if (ribbon.getAttribute('data-text') !== ribbonText) {
+                ribbon.innerHTML = generateMarqueeHTML(ribbonText);
+                ribbon.setAttribute('data-text', ribbonText);
+            }
+        }
+
+	function scrollToTop() {
+   		 window.scrollTo({
+       		 top: 0,
+      		  behavior: 'smooth'
+ 		   });
+	}
+
+        // Toggle Details
+       function toggleDetails(id, btn) {
+    const el = document.getElementById(id);
+    const icon = btn.querySelector('i');
+
+    const isOpen = el.style.display === "block";
+
+    if (isOpen) {
+        el.style.display = "none";
+        icon.className = "fas fa-chevron-down";
+
+        btn.childNodes[0].nodeValue =
+            currentLang === 'en'
+                ? 'Learn More '
+                : currentLang === 'mr'
+                    ? 'अधिक माहिती '
+                    : 'विस्तृत विवरण ';
+    } else {
+        el.style.display = "block";
+        icon.className = "fas fa-chevron-up";
+
+        btn.childNodes[0].nodeValue =
+            currentLang === 'en'
+                ? 'Hide Details '
+                : currentLang === 'mr'
+                    ? 'माहिती लपवा '
+                    : 'विवरण छुपाएँ ';
+    }
+}
+
+        // --- 4. SCROLL ANIMATION ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('reveal'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.event-card').forEach(el => observer.observe(el));
+
+        // --- 6. AUTO-LOAD GALLERY ---
+        const gallery = document.getElementById('gallery-grid');
+
+if (gallery) {
+    const existingCount = gallery.querySelectorAll('img').length;
+
+    for (let i = existingCount + 1; i <= 30; i++) {
+        const img = new Image();
+        img.src = `pic${i}.jpeg`;
+        img.alt = `Wedding moment ${i}`;
+
+        img.onerror = () => img.remove();
+        gallery.appendChild(img);
+    }
+}
+        
+        function openLightbox(img) {
+            const lightbox = document.getElementById('lightbox');
+            document.getElementById('lightbox-img').src = img.src;
+            lightbox.style.display = 'flex';
+        }
+        function closeLightbox() { document.getElementById('lightbox').style.display = 'none'; }
+
+        // Init
+        setLanguage('en');
+        updateDashboard();
+        setInterval(updateDashboard, 1000);
+
+window.addEventListener('load', () => {
+    const menu = document.getElementById('lang-menu');
+    if (menu) {
+        menu.classList.add('show');
+    }
+});
+
+function scrollToCurrent() {
+    if (currentEventId) {
+        const el = document.getElementById(currentEventId);
+        if (el) {
+            el.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+    }
+}
+
+function scrollToNext() {
+    if (nextEventId) {
+        const el = document.getElementById(nextEventId);
+        if (el) {
+            el.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+    }
+}
+
+document.addEventListener('click', (e) => {
+    const menu = document.getElementById('lang-menu');
+    const btn = document.querySelector('.lang-btn');
+    if (!menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.classList.remove('show');
+    }
+});
+
+function scrollVows(btn, direction) {
+    const wrapper = btn.parentElement.querySelector('.vows-scroll-wrapper');
+    if (!wrapper) return;
+
+    const cardWidth = wrapper.querySelector('.vow-card')?.offsetWidth || 260;
+    wrapper.scrollBy({
+        left: direction * (cardWidth + 15),
+        behavior: 'smooth'
+    });
+}
+
+
+    </script>
+</body>
+</html>
